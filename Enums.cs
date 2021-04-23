@@ -126,7 +126,8 @@ namespace Monad.FLParser
 
         public enum PluginType
         {
-            Vst = 8
+            Vst = 8,
+            FruityWrapper = 10
         }
 
         /*public enum FilterType

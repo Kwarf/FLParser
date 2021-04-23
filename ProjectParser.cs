@@ -561,7 +561,7 @@ namespace Monad.FLParser
             {
                 var pluginType = (Enums.PluginType)reader.ReadInt32();
 
-                if (pluginType != Enums.PluginType.Vst)
+                if (pluginType != Enums.PluginType.Vst && pluginType != Enums.PluginType.FruityWrapper)
                 {
                     return null;
                 }
