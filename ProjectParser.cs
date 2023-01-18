@@ -451,7 +451,7 @@ namespace Monad.FLParser
                         var patternId = reader.ReadUInt16();
                         var length = reader.ReadInt32();
                         var track = reader.ReadInt32();
-                        if (_versionMajor == 20)
+                        if (_versionMajor >= 20)
                             track = 501 - track;
                         else
                             track = 198 - track;
@@ -490,6 +490,12 @@ namespace Monad.FLParser
                                 Pattern = _project.Patterns[patternId - patternBase - 1],
                                 Muted = muted
                             });
+                        }
+
+                        if (_versionMajor == 21)
+                        {
+                            // Thanks to PyFLP, https://github.com/demberto/PyFLP/commit/6ffd8599919f4e811949c9fc1064425587220d83
+                            var unknown4 = reader.ReadBytes(28);
                         }
                     }
                     break;
